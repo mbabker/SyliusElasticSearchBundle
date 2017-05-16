@@ -55,7 +55,7 @@ final class ProductHasMultipleOptionCodesApplicatorSpec extends ObjectBehavior
         $criteria = new ProductHasOptionCodesFilter(['medium_mug']);
         $productHasOptionCodeQueryFactory->create(['option_value_code' => 'medium_mug'])->willReturn($mediumMugTermQuery);
 
-        $search->addFilter($mediumMugTermQuery, BoolQuery::SHOULD)->shouldBeCalled();
+        $search->addFilter($mediumMugTermQuery, BoolQuery::MUST)->shouldBeCalled();
 
         $this->apply($criteria, $search);
     }
